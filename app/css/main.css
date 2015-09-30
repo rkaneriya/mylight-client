@@ -1,0 +1,96 @@
+a { 
+    color: #2abbb0;
+}
+
+a:hover { 
+    color: #25a89e;
+    text-decoration: none; 
+}
+
+.sidebar {
+    width: 250px;
+}
+
+.title { 
+    font-size: 70px;
+    color: orange;
+    font-family: 'Satisfy', cursive;
+}
+
+body { 
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.subtitle { 
+    font-size: 30px; 
+    font-style: italic;
+}
+
+.news-headline { 
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news-metadata { 
+    font-size: 10px;
+    margin-top: -20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news-preview { 
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.charity-name { 
+    
+}
+
+.charity-metadata { 
+    margin-top: -20px; 
+}
+
+.charity-description { 
+    font-size: 14px; 
+    margin-top: -10px;
+}
+
+.badge-personal { 
+    background-color: orange; 
+}
+
+.badge-community { 
+    background-color: yellow; 
+}
+
+/*.navbar-fixed-top {
+    background-color: black;
+    font-size: 18px;
+    color: white;
+    margin-bottom: none;
+    vertical-align: middle;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-link {
+    color: #FFFFFF;
+}
+
+.navbar-logo {
+    margin: 6px;
+    display: inline-block;
+}
+
+.navbar-nav > li { 
+    padding-top: 12px;
+    font-size: 16px;
+}
+*/

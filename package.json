@@ -1,0 +1,30 @@
+{
+  "name": "mylight-client",
+  "version": "",
+  "description": "",
+  "scripts": {
+    "start": "nodemon bin/www",
+    "api": "json-server --watch app/scripts/stores/db.json",
+    "reactify": "watchify -t reactify app/js/main.js -o dist/js/main.js",
+    "global-install": "npm install -g watchify reactify"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {},
+  "dependencies": {
+    "bootstrap": "^3.3.4",  
+    "express": "^4.13.0",
+    "jquery": ">= 1.9.1",
+    "moment": "^2.10.3",
+    "react": "^0.13.3",
+    "react-bootstrap": "^0.23.7",
+    "react-router": "^0.13.2",
+    "react-tools": "^0.13.1",
+    "reactify": "^1.1.1",
+    "reflux": "^0.2.11",
+    "request": "^2.58.0",
+    "require": "^2.4.20",
+    "underscore": "^1.8.3",
+    "watchify": "^3.2.2"
+  }
+}
