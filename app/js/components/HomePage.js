@@ -36,11 +36,3 @@ var HomePage = React.createClass({
 });
 
 module.exports = HomePage;
-
-/* 
-         <div className='checkbox'>
-                        <label>
-                            <input type='checkbox' value="remember-me"/> Remember me
-                        </label>
-                    </div>
-*/

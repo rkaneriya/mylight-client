@@ -11,9 +11,9 @@ var Panel = require('react-bootstrap').Panel;
 var Profile = React.createClass({    
     getInitialState: function() { 
         return { 
-            first_name: 'Rishi',
-            last_name: 'Kaneriya',
-            email: 'kaneriya@princeton.edu'
+            first_name: 'My',
+            last_name: 'Light',
+            email: 'mylight@mylight.com'
         };
     }, 
 
