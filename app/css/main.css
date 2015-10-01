@@ -29,7 +29,6 @@ body {
 .news-headline { 
     font-weight: bold;
     letter-spacing: 1px;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }

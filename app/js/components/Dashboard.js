@@ -19,7 +19,7 @@ var Dashboard = React.createClass({
                 <div className='container-fluid'>
                     <div className='row'>
                         <RouteHandler />
-                        <NewsPanel />
+                        <NewsPanel news={ this.props.news } />
                     </div>  
                 </div>
             </div>
