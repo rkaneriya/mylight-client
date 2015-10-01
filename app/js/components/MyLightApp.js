@@ -23,21 +23,21 @@ var MyLightApp = React.createClass({
                 var xml = '';
 
                 res.on('data', function(chunk) {
-                  xml += chunk;
+                    xml += chunk;
                 });
 
                 res.on('error', function(e) {
-                  callback(e, null);
+                    callback(e, null);
                 }); 
 
                 res.on('timeout', function(e) {
-                  callback(e, null);
+                    callback(e, null);
                 }); 
 
                 res.on('end', function() {
-                  parseString(xml, function(err, result) {
-                    callback(null, result);
-                  });
+                    parseString(xml, function(err, result) {
+                        callback(null, result);
+                    });
                 });
             });
         }; 

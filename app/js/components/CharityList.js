@@ -13,7 +13,7 @@ var CharityList = React.createClass({
             <div className="col-sm-9 col-md-10 main">
                 <h1>CHARITY LIST</h1>
                 <CharityListItem name='GiveWell' description='A cool organization' location='NJ, USA' type='personal'/>
-                <CharityListItem name='GiveWell' description='A cool organization' location='NJ, USA' type='community'/>
+                <CharityListItem name='Oxfam America' description='A cool organization' location='NJ, USA' type='community'/>
                 <CharityListItem name='GiveWell' description='A cool organization' location='NJ, USA' type='personal'/>
             </div>
         ); 

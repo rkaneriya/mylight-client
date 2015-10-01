@@ -26,14 +26,3 @@ var NewsPanel = React.createClass({
 });
 
 module.exports = NewsPanel;
-
-/* 
-<NewsPanelItem headline='GiveWell Donates $1000' source='New York Times' date='Sept 1, 2015' preview='Description of GiveWell news article with some more text at the end'/>
-<NewsPanelItem headline='Water Found on Mars' source='Washington Post' date='Sept 1, 2015' preview='Description of WashPo article'/>
-<NewsPanelItem headline='GiveWell Donates $1000' source='New York Times' date='Sept 1, 2015' preview='Description of GiveWell news article with some more text at the end'/>
-<NewsPanelItem headline='Water Found on Mars' source='Washington Post' date='Sept 1, 2015' preview='Description of WashPo article'/>
-<NewsPanelItem headline='GiveWell Donates $1000' source='New York Times' date='Sept 1, 2015' preview='Description of GiveWell news article with some more text at the end'/>
-<NewsPanelItem headline='Water Found on Mars' source='Washington Post' date='Sept 1, 2015' preview='Description of WashPo article'/>
-<NewsPanelItem headline='GiveWell Donates $1000' source='New York Times' date='Sept 1, 2015' preview='Description of GiveWell news article with some more text at the end'/>
-<NewsPanelItem headline='Water Found on Mars' source='Washington Post' date='Sept 1, 2015' preview='Description of WashPo article'/>
-*/

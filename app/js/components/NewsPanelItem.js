@@ -7,7 +7,7 @@ var NewsPanelItem = React.createClass({
     render: function() {
         return (
             <li>
-                <a href={this.props.link}>
+                <a target='_blank' href={this.props.link}>
                     <div className='news-headline'>{ this.props.headline }</div><br/>
                     <div className='news-metadata'>{ this.props.source } | { this.props.date }</div><br/>
                     <div className='news-preview'>{ this.props.preview }</div>

@@ -29,16 +29,4 @@ var routes = (
     </Route>
 );
 
-// var routes = (
-//     <Route path='/' handler={ HomePage }>
-//         <Route path='event' handler={ EventList } />
-//         <Route path='event/:id' handler={ EventPage } >
-//             <Route path='guest' handler={ GuestList } />
-//             <Route path='reports' handler={ Reports } />
-//         </Route>
-//         <Route path='event/:id/registration' handler={ Registration } />
-//         <DefaultRoute handler={ EventList } />
-//     </Route>
-// );
-
 module.exports = routes;
