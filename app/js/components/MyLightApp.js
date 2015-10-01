@@ -6,6 +6,8 @@ var http = require('http');
 var _ = require('underscore'); 
 var moment = require('moment'); 
 
+var MAIN_URL = require('../../config/config').MAIN_URL; 
+
 var MyLightApp = React.createClass({
     getInitialState: function() { 
         return { 
@@ -14,7 +16,7 @@ var MyLightApp = React.createClass({
     }, 
 
     componentWillMount: function() { 
-        var url = 'http://localhost:8000/news'; 
+        var url = MAIN_URL + '/news'; 
             
         var xmlToJson = function xmlToJson(url, callback) {
           var req = http.get(url, function(res) {
