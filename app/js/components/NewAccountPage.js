@@ -3,11 +3,7 @@ var Reflux = require('reflux');
 
 var MAIN_URL = require('../../config/config').MAIN_URL; 
 
-var HomePage = React.createClass({
-    onSubmit: function() { 
-        window.open(MAIN_URL + '/mylight', '_self');    
-    }, 
-
+var NewAccountPage = React.createClass({
     render: function() {
         return (    
             <div className="container">
@@ -15,7 +11,7 @@ var HomePage = React.createClass({
                     <span className='title'>MyLight</span>
                     <br/><br/>
                     <span className='subtitle'>The one-stop-shop for the average philanthropist.</span>
-                    
+
                     <br/><br/>
 
                     <h4><i>Sign in to find charities and make a difference</i></h4>
@@ -38,4 +34,4 @@ var HomePage = React.createClass({
     }
 });
 
-module.exports = HomePage;
+module.exports = NewAccountPage;

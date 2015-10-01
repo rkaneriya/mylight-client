@@ -10,11 +10,15 @@
   },
   "author": "",
   "license": "",
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1"
+  },
   "dependencies": {
     "bootstrap": "^3.3.4",
     "express": "^4.13.0",
     "feedme": "^0.3.0",
+    "grunt": "^0.4.5",
     "jquery": ">= 1.9.1",
     "moment": "^2.10.3",
     "react": "^0.13.3",
