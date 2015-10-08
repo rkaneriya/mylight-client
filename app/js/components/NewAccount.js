@@ -8,7 +8,7 @@ var UserActions = require('../actions/UserActions');
 var UserStore = require('../stores/UserStore');
 var auth = require('../utils/auth'); 
 
-var HomePage = React.createClass({
+var NewAccount = React.createClass({
     mixins: [Navigation],
     
     statics: { 
@@ -31,13 +31,8 @@ var HomePage = React.createClass({
         return (    
             <div className="container">
                 <div className='home-page'>
-                    <span className='title'>MyLight</span>
-                    <br/><br/>
-                    <span className='subtitle'>The one-stop-shop for the average philanthropist.</span>
+                    <span className='subtitle'>Create new account.</span>
                     
-                    <br/><br/>
-
-                    <h4><i>Sign in to find charities and make a difference</i></h4>
                     <div className="form-signin">
                         <label htmlFor="inputUsername" className="sr-only">Username</label>
                         <input type="text" id="username" className="form-control" placeholder="Username" ref="username" required autofocus/>
@@ -57,4 +52,4 @@ var HomePage = React.createClass({
     }
 });
 
-module.exports = HomePage;
+module.exports = NewAccount;

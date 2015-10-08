@@ -8,9 +8,15 @@ var TEST_RSS = 'https://www.bing.com/news/search?q=oxfam&go=Submit&qs=n&form=NWB
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// API proxy 
+// news proxy 
 app.use('/news', function(req, res) { 
 	var url = TEST_RSS;
+    req.pipe(request(url)).pipe(res); 
+}); 
+
+// API proxy 
+app.use('/api', function(req, res) { 
+    var url = TARGET_URL + req.url; 
     req.pipe(request(url)).pipe(res); 
 }); 
 

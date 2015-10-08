@@ -7,6 +7,8 @@ var Authentication = {
             if (!auth.loggedIn()) { 
                 // save 'transition' somewhere as 'attemptedTransition'
                 transition.redirect('/home'); 
+            } else { 
+                transition.redirect('/mylight')
             }
         }
     }

@@ -2,6 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
+var Link = Router.Link; 
 
 var Table = require('react-bootstrap').Table; 
 var Col = require('react-bootstrap').Col; 
@@ -12,7 +13,7 @@ var CharityListItem = React.createClass({
         return (
             <div>
                 <div className='charity-name'>
-                    <a href="/mylight/charities/123">
+                    <Link to="/mylight/charities/123">
                         <h3>
                             <b><i>{ this.props.name }</i></b>
                             { (this.props.type === 'personal') ?
@@ -20,7 +21,7 @@ var CharityListItem = React.createClass({
                                 <span className='badge' style={{ marginLeft: '10px', backgroundColor: 'yellow', color: 'black' }}>Community</span>
                             }
                         </h3>
-                    </a>
+                    </Link>
                 </div><br/>
                 <div className='charity-metadata'>{ this.props.location }</div><br/>
                 <div className='charity-description'>{ this.props.description }</div>
