@@ -47,7 +47,56 @@ var UserStore = Reflux.createStore({
         }, function(res) {
             console.log("failed"); 
         }); 
-      },
+    },
+
+    onLoad: function(session_id) { 
+        var self = this; 
+        
+        ApiClient.load(session_id, function(res) { 
+            if (res.status) { 
+                _personal_info = res.personal_info;  
+                _notifications = res.notifications; 
+                _recommendations = res.recommendations;
+                _friends = res.friends;
+
+                self.trigger({ 
+                    personal_info: res.personal_info,
+                    notifications: res.notifications,
+                    recommendations: res.recommendations,
+                    friends: res.friends
+                }); 
+            } 
+        }, function(res) { 
+            console.log("failed"); 
+        });
+    },
+
+    onUpdatePersonalInfo: function(prop, newValue) { 
+        _personal_info[prop] = newValue; 
+        this.trigger({ personal_info: _personal_info }); 
+    }, 
+
+    onSavePersonalInfo: function(uid) { 
+        var self = this; 
+
+        ApiClient.updatePersonalInfo(uid, _personal_info, function(res) { 
+            if (res.status) { 
+                _personal_info = res.personal_info;  
+                _notifications = res.notifications; 
+                _recommendations = res.recommendations;
+                _friends = res.friends;
+
+                self.trigger({ 
+                    personal_info: res.personal_info,
+                    notifications: res.notifications,
+                    recommendations: res.recommendations,
+                    friends: res.friends
+                }); 
+            } 
+        }, function(res) { 
+            console.log("failed"); 
+        }); 
+    },
 
     onCheckAuth: function(uid, session_id) { 
         var self = this; 

@@ -36,7 +36,33 @@ var checkAuth = function(username, session_id, completed, failed) {
     }); 
 }; 
 
+var load = function(session_id, completed, failed) { 
+    request({ 
+        method: 'GET', 
+        uri: (url + '/load?session_id=' + session_id)
+    }, function(err, req, body) { 
+        if (err) failed(err); 
+        else completed(JSON.parse(body)); 
+    }); 
+};
+
+var updatePersonalInfo = function(uid, personal_info, completed, failed) { 
+    request({ 
+        method: 'PUT',
+        uri: (url + '/user/' + uid),
+        json: true,
+        body: { 
+            personal_info: personal_info
+        }
+    }, function(err, req, body) { 
+        if (err) failed(err); 
+        else completed(body); 
+    }); 
+}; 
+
 module.exports = { 
     authenticate: authenticate,
-    checkAuth: checkAuth
+    checkAuth: checkAuth,
+    load: load,
+    updatePersonalInfo: updatePersonalInfo
 };

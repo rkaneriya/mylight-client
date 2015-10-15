@@ -4,7 +4,7 @@ var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 
 var Authentication = require('../mixins/Authentication'); 
-var ApiClient = require('../utils/api-client'); 
+var UserActions = require('../actions/UserActions'); 
 
 var TopNavbar = require('./TopNavbar'); 
 var Profile = require('./Profile'); 
@@ -25,6 +25,12 @@ var Dashboard = React.createClass({
         }   
     },
 
+    componentWillMount: function() { 
+        var sid = localStorage.getItem('session_id'); 
+        console.log(sid); 
+        UserActions.load(sid); 
+    }, 
+
     render: function() {
         console.log(this.state); 
         return (
@@ -32,7 +38,7 @@ var Dashboard = React.createClass({
                 <TopNavbar title='MyLight' />
                 <div className='container-fluid'>
                     <div className='row'>
-                        <RouteHandler personal_info={ this.state.personal_info }/>
+                        <RouteHandler personal_info={ this.state.personal_info } recommendations={ this.state.recommendations }/>
                         <NewsPanel news={ this.props.news } />
                     </div>  
                 </div>

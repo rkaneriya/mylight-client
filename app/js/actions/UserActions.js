@@ -4,10 +4,9 @@ var ApiClient = require('../utils/api-client');
 var actions = Reflux.createActions({
 	'authenticate': {},
     'checkAuth': {}, 
-	'addGuest': {},
-	'deleteGuest': {}, 
-	'updateGuest': {},
-	'importGuests': {}
+    'updatePersonalInfo': {},
+    'savePersonalInfo': {}, 
+    'load': {}
 });
 
 // actions.authenticate.preEmit = function(username, password_hash) { 

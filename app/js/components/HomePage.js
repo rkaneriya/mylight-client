@@ -23,6 +23,7 @@ var HomePage = React.createClass({
 
     onSubmit: function() { 
         var session_id = Math.abs((new Date()).valueOf() & 0xffffffff);
+        console.log(session_id); 
         localStorage.setItem('session_id', session_id); 
         UserActions.authenticate(document.getElementById('username').value, document.getElementById('password').value, session_id, this.context.router);  
     }, 
