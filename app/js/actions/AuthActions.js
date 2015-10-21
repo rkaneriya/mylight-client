@@ -1,9 +1,7 @@
 var Reflux = require('reflux');
 
 var actions = Reflux.createActions({
-    'updatePersonalInfo': {},
-    'savePersonalInfo': {}, 
-    'load': {}
+    'authenticate': {}
 });
 
 module.exports = actions;

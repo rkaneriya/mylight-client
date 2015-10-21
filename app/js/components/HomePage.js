@@ -4,12 +4,14 @@ var Router = require('react-router');
 var Navigation = Router.Navigation; 
 
 var MAIN_URL = require('../../config/config').MAIN_URL; 
-var UserActions = require('../actions/UserActions'); 
-var UserStore = require('../stores/UserStore');
+var AuthActions = require('../actions/AuthActions');
+var UserStore = require('../stores/UserStore');  
 var auth = require('../utils/auth'); 
 
+var Alert = require('react-bootstrap').Alert; 
+
 var HomePage = React.createClass({
-    mixins: [Navigation],
+    mixins: [Navigation, Reflux.connect(UserStore)],
     
     statics: { 
         willTransitionTo: function(transition) {
@@ -22,10 +24,8 @@ var HomePage = React.createClass({
     },
 
     onSubmit: function() { 
-        var session_id = Math.abs((new Date()).valueOf() & 0xffffffff);
-        console.log(session_id); 
-        localStorage.setItem('session_id', session_id); 
-        UserActions.authenticate(document.getElementById('username').value, document.getElementById('password').value, session_id, this.context.router);  
+        AuthActions.authenticate(document.getElementById('username').value, 
+            document.getElementById('password').value, this.context.router);  
     }, 
 
     render: function() {
@@ -46,6 +46,11 @@ var HomePage = React.createClass({
                         <label htmlFor="inputPassword" className="sr-only">Password</label>
                         <input type="password" id="password" className="form-control" placeholder="Password" ref="password" required/>
                         
+                        { (!this.state.auth) ?
+                            <div className='failed-auth'>The username and password you entered don&#39;t match.</div> :
+                            <span></span>
+                        }
+
                         <button className="btn btn-lg btn-primary btn-block" onClick={ this.onSubmit }>Sign in</button>
                     </div>
 

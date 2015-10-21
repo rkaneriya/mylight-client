@@ -26,13 +26,11 @@ var Dashboard = React.createClass({
     },
 
     componentWillMount: function() { 
-        var sid = localStorage.getItem('session_id'); 
-        console.log(sid); 
-        UserActions.load(sid); 
+        var jwt = localStorage.getItem('jwt'); 
+        UserActions.load(jwt); 
     }, 
 
     render: function() {
-        console.log(this.state); 
         return (
             <div>
                 <TopNavbar title='MyLight' />

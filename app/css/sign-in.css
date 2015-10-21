@@ -1,3 +1,9 @@
+.failed-auth { 
+    color: red; 
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
 .form-signin {
     max-width: 330px;
     padding: 20px;

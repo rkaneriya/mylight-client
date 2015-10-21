@@ -8,8 +8,7 @@ var TopNavbar = React.createClass ({
     mixins: [Navigation],
 
     onSignOut: function() { 
-        localStorage.removeItem('session_id'); 
-        localStorage.removeItem('auth'); 
+        localStorage.removeItem('jwt');  
         this.transitionTo('/'); 
     }, 
 
