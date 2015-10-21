@@ -6,6 +6,7 @@ var DefaultRoute = Router.DefaultRoute;
 
 var MyLightApp = require('./components/MyLightApp'); 
 var HomePage = require('./components/HomePage');
+var CreateAccount = require('./components/CreateAccount'); 
 var Dashboard = require('./components/Dashboard'); 
 var Profile = require('./components/Profile'); 
 var CharityList = require('./components/CharityList'); 
@@ -16,6 +17,7 @@ var FriendPage = require('./components/FriendPage');
 var routes = (
     <Route path='/' handler={ MyLightApp }> 
         <Route path='home' handler={ HomePage }/> 
+        <Route path='sign-up' handler={ CreateAccount }/>
         <Route path='mylight' handler={ Dashboard }> 
             <Route path='profile' handler={ Profile }/> 
             <Route path='charities' handler={ CharityList }/>

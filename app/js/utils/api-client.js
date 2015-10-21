@@ -44,8 +44,39 @@ var updatePersonalInfo = function(uid, personal_info, completed, failed) {
     }); 
 }; 
 
+var createNewUser = function(first_name, last_name, email, username, password, completed, failed) { 
+    request({ 
+        method: 'POST', 
+        uri: (url + '/user'),
+        json: true,
+        body: { 
+            first_name: first_name,
+            last_name: last_name,
+            username: username,
+            email: email,
+            password_hash: password,
+            ar: false,
+            bh: false, 
+            ed: false, 
+            eh: false, 
+            en: false,
+            he: false,
+            hu: false,
+            intl: false,
+            mu: false,
+            pu: false,
+            re: false,
+            un: false
+        }
+    }, function(err, req, body) { 
+        if (err) failed(err); 
+        else completed(body); 
+    }); 
+}; 
+
 module.exports = { 
     authenticate: authenticate,
     load: load,
-    updatePersonalInfo: updatePersonalInfo
+    updatePersonalInfo: updatePersonalInfo,
+    createNewUser: createNewUser
 };

@@ -5,6 +5,7 @@ var moment = require('moment');
 
 var UserActions = require('../actions/UserActions');
 var AuthActions = require('../actions/AuthActions'); 
+
 var ApiClient = require('../utils/api-client'); 
 var MAIN_URL = require('../../config/config').MAIN_URL; 
 
@@ -92,7 +93,7 @@ var UserStore = Reflux.createStore({
         }, function(res) { 
             console.log("failed"); 
         }); 
-    },
+    }
 });
 
 

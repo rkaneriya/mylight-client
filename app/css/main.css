@@ -85,6 +85,27 @@ body {
     background-color: yellow; 
 }
 
+.create-account { 
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.create-account input { 
+    height: 40px; 
+    margin-bottom: 13px; 
+}
+
+.create-account-label { 
+    float: left; 
+    font-weight: bold;
+    margin-bottom: 3px; 
+}
+
+.create-account-error { 
+    border: 1px red solid;    
+}
+
 /*.navbar-fixed-top {
     background-color: black;
     font-size: 18px;

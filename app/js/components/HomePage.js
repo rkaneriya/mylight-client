@@ -2,6 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var Router = require('react-router');
 var Navigation = Router.Navigation; 
+var Link = Router.Link; 
 
 var MAIN_URL = require('../../config/config').MAIN_URL; 
 var AuthActions = require('../actions/AuthActions');
@@ -17,7 +18,6 @@ var HomePage = React.createClass({
         willTransitionTo: function(transition) {
             var loggedIn = auth.loggedIn();
             if (loggedIn) { 
-                // save 'transition' somewhere as 'attemptedTransition'
                 transition.redirect('/mylight'); 
             } 
         }   
@@ -56,7 +56,7 @@ var HomePage = React.createClass({
 
                     <br/>
 
-                    <a href="#">Don&#39;t have an account? Creating one is quick and easy.</a>
+                    <Link to="/sign-up">Don&#39;t have an account? Creating one is quick and easy.</Link>
                 </div>
             </div>
         );
