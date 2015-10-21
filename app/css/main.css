@@ -89,6 +89,7 @@ body {
     width: 400px;
     text-align: center;
     margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 .create-account input { 
@@ -100,6 +101,14 @@ body {
     float: left; 
     font-weight: bold;
     margin-bottom: 3px; 
+}
+
+.create-account-sublabel { 
+    float: left; 
+    font-style: italic;
+    color: gray;
+    text-size: 6px;
+    margin-left: 5px;
 }
 
 .create-account-error { 
