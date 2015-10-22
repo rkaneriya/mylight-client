@@ -32,9 +32,8 @@ var UserStore = Reflux.createStore({
 
         ApiClient.authenticate(username, password_hash, function(res) {
             if (res.status) { 
-                self.trigger({ auth: true });
-
                 localStorage.setItem('jwt', res.jwt); 
+                self.trigger({ auth: true });
                 router.transitionTo('/mylight'); 
             } else { 
                 self.trigger({ auth: false });  
@@ -64,7 +63,7 @@ var UserStore = Reflux.createStore({
                 console.log("Couldn't find a user associated with the uid in the jwt token"); 
             } 
         }, function(res) { 
-            console.log("failed"); 
+            console.log(res, "failed"); 
         });
     },
 

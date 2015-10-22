@@ -51,13 +51,11 @@ var NewUserStore = Reflux.createStore({
                     localStorage.setItem('jwt', res.jwt); 
                     router.transitionTo('/mylight'); 
                 } else { 
-                    console.log(res); 
                     _isValid.username = res.username; 
                     _isValid.email = res.email; 
                     self.trigger({ isValid: _isValid }); 
                 }
             }, function(res) { 
-                console.log(res); 
                 console.log("error in creating new user - POST request didn't go through"); 
             }); 
         } else { 

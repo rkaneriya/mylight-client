@@ -9,7 +9,7 @@ var TopNavbar = React.createClass ({
 
     onSignOut: function() { 
         localStorage.removeItem('jwt');  
-        this.transitionTo('/'); 
+        window.open('/home', '_self'); 
     }, 
 
     render: function() {

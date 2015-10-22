@@ -116,6 +116,20 @@ a.title {
     border: 1px red solid;    
 }
 
+.favorite { 
+    margin-left: 20px;
+    font-size: 30px; 
+    color: gray; 
+}
+
+.favorite:hover { 
+    color: orange; 
+}
+
+.report { 
+    text-align: center; 
+}
+
 /*.navbar-fixed-top {
     background-color: black;
     font-size: 18px;

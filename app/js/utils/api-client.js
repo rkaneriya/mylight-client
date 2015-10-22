@@ -74,9 +74,20 @@ var createNewUser = function(first_name, last_name, email, username, password, c
     }); 
 }; 
 
+var loadCharity = function(ein, completed, failed) { 
+    request({ 
+        method: 'GET', 
+        uri: (url + '/charity/' + ein)
+    }, function(err, req, body) { 
+        if (err) failed(err); 
+        else completed(JSON.parse(body)); 
+    }); 
+}; 
+
 module.exports = { 
     authenticate: authenticate,
     load: load,
     updatePersonalInfo: updatePersonalInfo,
-    createNewUser: createNewUser
+    createNewUser: createNewUser,
+    loadCharity: loadCharity
 };

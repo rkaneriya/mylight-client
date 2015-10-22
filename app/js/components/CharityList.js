@@ -10,9 +10,8 @@ var CharityListItem = require('./CharityListItem');
 
 var CharityList = React.createClass({
     insertCharities: function() { 
-        console.log(this.props.recommendations); 
         return _.map(this.props.recommendations, function(r, i) { 
-            return (<CharityListItem key={i} name={r.name} description={r.description} city={r.city} state={r.state} category={r.ntmaj12} revenue={r.totrev2} type={r.type}/>); 
+            return (<CharityListItem key={i} ein={r.ein} name={r.name} description={r.description} city={r.city} state={r.state} category={r.ntmaj12} revenue={r.totrev2} type={r.type}/>); 
         }); 
     }, 
 
