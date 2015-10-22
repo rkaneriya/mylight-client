@@ -79,7 +79,8 @@ var NewUserStore = Reflux.createStore({
                 _isValid.username = (newValue.trim() !== ''); 
                 break;
             case 'password':
-                _isValid.password = (newValue.length > 5); 
+                _isValid.password = (newValue.length > 5);
+                _isValid.confirmPassword = (newValue == _personal_info.confirmPassword);  
                 break;
             case 'confirmPassword':
                 _isValid.confirmPassword = (newValue == _personal_info.password);

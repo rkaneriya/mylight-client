@@ -32,7 +32,7 @@ var HomePage = React.createClass({
         return (    
             <div className="container">
                 <div className='home-page'>
-                    <span className='title'>MyLight</span>
+                    <a href='/home' className='title'>MyLight</a>
                     <br/><br/>
                     <span className='subtitle'>The one-stop-shop for the average philanthropist.</span>
                     
@@ -56,7 +56,7 @@ var HomePage = React.createClass({
 
                     <br/>
 
-                    <Link to="/sign-up">Don&#39;t have an account? Creating one is quick and easy.</Link>
+                    <Link to="/sign-up">Create new account</Link>
                 </div>
             </div>
         );

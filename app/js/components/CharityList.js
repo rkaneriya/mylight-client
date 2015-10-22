@@ -12,17 +12,23 @@ var CharityList = React.createClass({
     insertCharities: function() { 
         console.log(this.props.recommendations); 
         return _.map(this.props.recommendations, function(r, i) { 
-            return (<CharityListItem key={i} name={r.name} description='A description of the organization' location={r.state + ', USA'} category={r.ntmaj10} type={r.type}/>); 
+            return (<CharityListItem key={i} name={r.name} description={r.description} city={r.city} state={r.state} category={r.ntmaj12} revenue={r.totrev2} type={r.type}/>); 
         }); 
     }, 
 
     render: function() {
-        return (
-            <div className="col-sm-9 col-md-10 main">
-                <h1>CHARITY LIST</h1>
-                { this.insertCharities() } 
-           </div>
-        ); 
+        if (_.isEmpty(this.props.recommendations)) { 
+            return (
+                <img src='/images/facebook.gif' style={{ marginTop: '200px', marginLeft: '400px' }} />
+            ); 
+        } else { 
+            return (
+                <div className="col-sm-9 col-md-10 main">
+                    <h1>CHARITY LIST</h1>
+                    { this.insertCharities() } 
+               </div>
+            ); 
+        }
     }
 });
 

@@ -1,3 +1,7 @@
+body { 
+    font-family: 'Noto Sans', sans-serif;
+}
+
 a { 
     color: #2abbb0;
 }
@@ -20,14 +24,10 @@ a:active a:focus {
     width: 250px;
 }
 
-.title { 
+a.title { 
     font-size: 70px;
     color: orange;
     font-family: 'Satisfy', cursive;
-}
-
-body { 
-    font-family: 'Noto Sans', sans-serif;
 }
 
 .home-page { 
@@ -70,6 +70,7 @@ body {
 
 .charity-metadata { 
     margin-top: -20px; 
+    font-weight: bold;
 }
 
 .charity-description { 
