@@ -69,13 +69,14 @@ a.title {
 }
 
 .charity-metadata { 
-    margin-top: -20px; 
+    margin-top: -25px; 
     font-weight: bold;
 }
 
 .charity-description { 
     font-size: 14px; 
-    margin-top: -10px;
+    margin-top: -12px;
+    margin-bottom: 20px;
 }
 
 .badge-personal { 
@@ -116,13 +117,19 @@ a.title {
     border: 1px red solid;    
 }
 
-.favorite { 
+.favorite-yes { 
+    margin-left: 20px;
+    font-size: 30px; 
+    color: orange; 
+}
+
+.favorite-no { 
     margin-left: 20px;
     font-size: 30px; 
     color: gray; 
 }
 
-.favorite:hover { 
+.favorite-no:hover { 
     color: orange; 
 }
 

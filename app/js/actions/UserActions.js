@@ -4,7 +4,8 @@ var actions = Reflux.createActions({
     'updatePersonalInfo': {},
     'savePersonalInfo': {}, 
     'load': {},
-    'createNewUser': {}
+    'createNewUser': {},
+    'toggleFavorite': {}
 });
 
 module.exports = actions;

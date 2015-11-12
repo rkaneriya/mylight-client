@@ -6,6 +6,7 @@ var RouteHandler = Router.RouteHandler;
 var _ = require('underscore'); 
 var numeral = require('numeral'); 
 
+var UserActions = require('../actions/UserActions'); 
 var CharityActions = require('../actions/CharityActions'); 
 var CharityStore = require('../stores/CharityStore'); 
 
@@ -22,7 +23,9 @@ var CharityPage = React.createClass({
 
     componentWillMount: function() { 
         var path = this.getPath(); 
-        CharityActions.loadCharity(_.last(path.split('/'))); 
+        var ein = _.first(_.last(path.split('/')).split('?'));
+        var uid = _.last(path.split('='));
+        CharityActions.loadCharity(ein, uid);  
     },
 
     generateStats: function() { 
@@ -50,7 +53,31 @@ var CharityPage = React.createClass({
             eoy: eoy,
             options: options
         };
+    },  
+
+    toggleFavorite: function() { 
+        var path = this.getPath(); 
+        var uid = _.last(path.split('='));
+        UserActions.toggleFavorite(uid, this.state.charity.ein); 
     }, 
+
+    insertComments: function() { 
+        var path = this.getPath(); 
+        var ein = _.first(_.last(path.split('/')).split('?'));
+
+        var disqus_config = function () {
+            // this.page.url = this.getPath(); // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ein; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        var d = document; 
+        var s = d.createElement('script');
+
+        s.src = '//mylightapp.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    },
 
     render: function() {
         if (_.isEmpty(this.state.charity)) { 
@@ -59,6 +86,7 @@ var CharityPage = React.createClass({
             );             
         } else { 
             var c = this.state.charity;
+            console.log(c); 
             var color = colors[c.ntmaj12]; 
             var stats = this.generateStats(); 
             return (
@@ -67,18 +95,19 @@ var CharityPage = React.createClass({
                         <h1>
                             { c.name }
                             <OverlayTrigger placement="right" overlay={<Tooltip>Favorite</Tooltip>}>
-                                <span className="favorite glyphicon glyphicon-star" aria-hidden="true"></span>
+                                {
+                                    (c.favorite) ?  
+                                    <span onClick={ this.toggleFavorite() } className="favorite-yes glyphicon glyphicon-star" aria-hidden="true"></span> :
+                                    <span onClick={ this.toggleFavorite() } className="favorite-no glyphicon glyphicon-star" aria-hidden="true"></span>
+                                }
                             </OverlayTrigger>
                         </h1>
                         { c.address }, { (c.state == 'FO') ? c.city : <span>{ c.city }, { c.state }, { c.zip }, USA </span> } | 
                         <span className='badge' style={{ marginLeft: '10px', backgroundColor: color, color: 'black' }}>{ categories[c.ntmaj12] }</span>
+                        <hr/>
                     </Col>
-                    <hr/>
                     <br/><br/>
                     <div className='report'>
-                        <Col xs={12}>
-                            <i><b><h2>FINANCIAL HEALTH</h2></b></i>
-                        </Col>
                         <Col xs={6}>
                             <h1 style={{ color: 'green' }}>{ numeral(c.totrev).format('$0,0') }</h1>
                             <h3>Total Revenue</h3>
@@ -112,6 +141,10 @@ var CharityPage = React.createClass({
                             <h5>({ c.fisyr })</h5>
                         </Col>
                     </div>
+                    <Col xs={12}>
+                        <div id="disqus_thread"></div>             
+                        { this.insertComments() }
+                    </Col>
                 </div>
             ); 
         }

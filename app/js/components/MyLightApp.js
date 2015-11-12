@@ -16,51 +16,51 @@ var MyLightApp = React.createClass({
     }, 
 
     componentWillMount: function() { 
-        // var url = MAIN_URL + '/news'; 
+        var url = MAIN_URL + '/news'; 
             
-        // var xmlToJson = function xmlToJson(url, callback) {
-        //     var req = http.get(url, function(res) {
-        //         var xml = '';
+        var xmlToJson = function xmlToJson(url, callback) {
+            var req = http.get(url, function(res) {
+                var xml = '';
 
-        //         res.on('data', function(chunk) {
-        //             xml += chunk;
-        //         });
+                res.on('data', function(chunk) {
+                    xml += chunk;
+                });
 
-        //         res.on('error', function(e) {
-        //             callback(e, null);
-        //         }); 
+                res.on('error', function(e) {
+                    callback(e, null);
+                }); 
 
-        //         res.on('timeout', function(e) {
-        //             callback(e, null);
-        //         }); 
+                res.on('timeout', function(e) {
+                    callback(e, null);
+                }); 
 
-        //         res.on('end', function() {
-        //             parseString(xml, function(err, result) {
-        //                 callback(null, result);
-        //             });
-        //         });
-        //     });
-        // }; 
+                res.on('end', function() {
+                    parseString(xml, function(err, result) {
+                        callback(null, result);
+                    });
+                });
+            });
+        }; 
 
-        // var self = this; 
-        // xmlToJson(url, function(err, data) { 
-        //     if (err) { 
-        //         console.log(err); 
-        //     } else { 
-        //         var raw = data.rss.channel[0].item;
-        //         var news = _.map(raw, function(r) { 
-        //             return { 
-        //                 headline: r.title[0],
-        //                 source: r['News:Source'][0],
-        //                 preview: r.description[0],
-        //                 link: r.link[0],
-        //                 date: moment(new Date(r.pubDate[0])).format('MMM D, YYYY')
-        //             };
-        //         });  
+        var self = this; 
+        xmlToJson(url, function(err, data) { 
+            if (err) { 
+                console.log(err); 
+            } else { 
+                var raw = data.rss.channel[0].item;
+                var news = _.map(raw, function(r) { 
+                    return { 
+                        headline: r.title[0],
+                        source: r['News:Source'][0],
+                        preview: r.description[0],
+                        link: r.link[0],
+                        date: moment(new Date(r.pubDate[0])).format('MMM D, YYYY')
+                    };
+                });  
 
-        //         self.setState({ news: news }); 
-        //     }
-        // }); 
+                self.setState({ news: news }); 
+            }
+        }); 
     },
 
     render: function() {

@@ -92,6 +92,12 @@ var UserStore = Reflux.createStore({
         }, function(res) { 
             console.log("failed"); 
         }); 
+    },
+
+    onToggleFavorite: function(uid, ein) {
+        ApiClient.toggleFavorite(uid, ein, function(res) {}, function(res) { 
+            console.log("failed to toggle favorite");
+        });
     }
 });
 

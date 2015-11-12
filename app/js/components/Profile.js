@@ -6,6 +6,7 @@ var _ = require('underscore');
 
 var UserActions = require('../actions/UserActions'); 
 var categories = require('../utils/categories').lower; 
+var colors = require('../utils/categories').color;
 
 var Input = require('react-bootstrap').Input; 
 var Button = require('react-bootstrap').Button; 
@@ -50,6 +51,25 @@ var Profile = React.createClass({
             UserActions.updatePersonalInfo(prop, this.refs, false); 
         }); 
     },
+
+    insertFavorites: function() { 
+        var uid = this.props.personal_info.uid; 
+        if (_.isEmpty(this.props.personal_info.favorites)) return '(No favorites yet)'; 
+
+        return _.map(this.props.personal_info.favorites, function(f, i) { 
+            var color = colors[f.ntmaj12]; 
+            var url = '/mylight/charities/' + f.ein + '?id=' + uid; 
+
+            return (
+                <a href={ url } target='_blank'>
+                    <h4>
+                        <b><i>{ f.name }</i></b>
+                        <span className='badge' style={{ marginLeft: '10px', backgroundColor: color, color: 'black' }}>{ categories[f.ntmaj12] }</span>
+                    </h4>
+                </a>
+            );
+        });
+    }, 
 
     render: function() {
         if (!this.props.personal_info.first_name) { 
@@ -101,9 +121,10 @@ var Profile = React.createClass({
                     </Col>
 
                     <Col xs={12}>
-                        <br/><br/>
+                        <br/>
+                        <h3><i>Favorites</i></h3>
+                        { this.insertFavorites() }
                     </Col>
-
 
                     <Modal show={this.state.showModal} onHide={ this.closeModal }>
                         <Modal.Header closeButton>

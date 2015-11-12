@@ -74,20 +74,35 @@ var createNewUser = function(first_name, last_name, email, username, password, c
     }); 
 }; 
 
-var loadCharity = function(ein, completed, failed) { 
+var loadCharity = function(ein, uid, completed, failed) { 
     request({ 
         method: 'GET', 
-        uri: (url + '/charity/' + ein)
+        uri: (url + '/charity/' + ein + '?uid=' + uid)
     }, function(err, req, body) { 
         if (err) failed(err); 
         else completed(JSON.parse(body)); 
     }); 
 }; 
 
+var toggleFavorite = function(uid, ein, completed, failed) { 
+    request({ 
+        method: 'POST',
+        uri: (url + '/user/' + uid + '/favorites'),
+        json: true,
+        body: { 
+            ein: ein
+        }
+    }, function(err, req, body) { 
+        if (err) failed(err); 
+        else completed(body); 
+    }); 
+};
+
 module.exports = { 
     authenticate: authenticate,
     load: load,
     updatePersonalInfo: updatePersonalInfo,
     createNewUser: createNewUser,
-    loadCharity: loadCharity
+    loadCharity: loadCharity,
+    toggleFavorite: toggleFavorite
 };

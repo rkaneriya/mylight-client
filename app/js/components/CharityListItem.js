@@ -13,7 +13,8 @@ var colors = require('../utils/categories').color;
 var CharityListItem = React.createClass({
     render: function() {
         var color = colors[this.props.category]; 
-        var url = '/mylight/charities/' + this.props.ein; 
+        var url = '/mylight/charities/' + this.props.ein + '?id=' + this.props.uid; 
+        console.log(this.props); 
         return (
             <div style={{ marginRight: '20px' }}>
                 <div className='charity-name'>
@@ -21,13 +22,11 @@ var CharityListItem = React.createClass({
                         <h3>
                             <b><i>{ this.props.name }</i></b>
                             <span className='badge' style={{ marginLeft: '10px', backgroundColor: color, color: 'black' }}>{ categories[this.props.category] }</span>
-
                         </h3>
                     </a>
                 </div><br/>
                 <div className='charity-metadata'>{ (this.props.state == 'FO') ? this.props.city : <span>{this.props.city}, {this.props.state}, USA</span> }</div><br/>
-                <div className='charity-description'>{ this.props.description }</div>
-                <hr/>
+                <div className='charity-description'>{ (this.props.description) ? this.props.description : '---' } </div>
             </div>
         ); 
     }

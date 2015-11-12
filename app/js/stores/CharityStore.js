@@ -18,10 +18,10 @@ var CharityStore = Reflux.createStore({
         };
     },
 
-    onLoadCharity: function(ein) { 
+    onLoadCharity: function(ein, uid) { 
         var self = this; 
 
-        ApiClient.loadCharity(ein, function(res) {
+        ApiClient.loadCharity(ein, uid, function(res) {
             _charity = res; 
             self.trigger({ charity: _charity }); 
         }, function(res) { 
